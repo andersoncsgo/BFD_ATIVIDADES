@@ -148,7 +148,10 @@ print(f"Acesso pelo objeto: {dog.especie}")
 print(f"Acesso pela classe: {Cachorro.especie}")
 
 # -----------------------------
-# 10 - Na classe ContaBancaria, converta saldo para um atributo privado. Crie um método setter e um getter para acessar e modificar esse atributo, seguindo uma regra lógica (Ex: saldo não pode ser negativo)
+# -----------------------------
+# -----------------------------
+# Lista de Exercícios – POO classes e objetos
+# 1 - Na classe ContaBancaria, converta saldo para um atributo privado. Crie um método setter e um getter para acessar e modificar esse atributo, seguindo uma regra lógica (Ex: saldo não pode ser negativo)
 class ContaBancaria:
 	def __init__(self, titular, saldo=0):
 		self.titular = titular
@@ -179,7 +182,7 @@ print(f"Saldo final: {conta3.get_saldo()}")
 
 print("-----------------------------")
 
-# 11 - Crie uma classe, Pessoa, que tenha os atributos: nome, data de nascimento, cpf, identidade. Deixe os atributos cpf e identidade como privado e monte os métodos setters e getters para acessar e editar os valores
+# 2 - Crie uma classe, Pessoa, que tenha os atributos: nome, data de nascimento, cpf, identidade. Deixe os atributos cpf e identidade como privado e monte os métodos setters e getters para acessar e editar os valores
 class Pessoa:
 	def __init__(self, nome, data_nascimento, cpf, identidade):
 		self.nome = nome
@@ -195,7 +198,7 @@ class Pessoa:
 	def set_identidade(self, nova_identidade):
 		self.__identidade = nova_identidade
 
-# Teste da questão 11
+# Teste da questão 1 e 2
 pessoa1 = Pessoa("Anderson Silva", "01/06/1996", "263.263.151-12", "MG-12.345.678")
 print(f"Nome: {pessoa1.nome}, Data de Nascimento: {pessoa1.data_nascimento}, CPF: {pessoa1.get_cpf()}, Identidade: {pessoa1.get_identidade()}")
 pessoa1.set_cpf("987.654.321-00")
