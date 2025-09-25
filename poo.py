@@ -146,3 +146,58 @@ class Cachorro:
 dog = Cachorro("Rex", 3)
 print(f"Acesso pelo objeto: {dog.especie}")
 print(f"Acesso pela classe: {Cachorro.especie}")
+
+# -----------------------------
+# 10 - Na classe ContaBancaria, converta saldo para um atributo privado. Crie um método setter e um getter para acessar e modificar esse atributo, seguindo uma regra lógica (Ex: saldo não pode ser negativo)
+class ContaBancaria:
+	def __init__(self, titular, saldo=0):
+		self.titular = titular
+		self.__saldo = saldo if saldo >= 0 else 0
+	def depositar(self, valor):
+		if valor > 0:
+			self.__saldo += valor
+	def sacar(self, valor):
+		if 0 < valor <= self.__saldo:
+			self.__saldo -= valor
+			return True
+		return False
+	def get_saldo(self):
+		return self.__saldo
+	def set_saldo(self, novo_saldo):
+		if novo_saldo >= 0:
+			self.__saldo = novo_saldo
+		else:
+			print("Saldo não pode ser negativo!")
+
+# Teste da questão 10
+conta3 = ContaBancaria("Carlos", 500)
+print(f"Saldo inicial: {conta3.get_saldo()}")
+conta3.set_saldo(300)
+print(f"Saldo após set_saldo(300): {conta3.get_saldo()}")
+conta3.set_saldo(-100)  # Não deve permitir
+print(f"Saldo final: {conta3.get_saldo()}")
+
+print("-----------------------------")
+
+# 11 - Crie uma classe, Pessoa, que tenha os atributos: nome, data de nascimento, cpf, identidade. Deixe os atributos cpf e identidade como privado e monte os métodos setters e getters para acessar e editar os valores
+class Pessoa:
+	def __init__(self, nome, data_nascimento, cpf, identidade):
+		self.nome = nome
+		self.data_nascimento = data_nascimento
+		self.__cpf = cpf
+		self.__identidade = identidade
+	def get_cpf(self):
+		return self.__cpf
+	def set_cpf(self, novo_cpf):
+		self.__cpf = novo_cpf
+	def get_identidade(self):
+		return self.__identidade
+	def set_identidade(self, nova_identidade):
+		self.__identidade = nova_identidade
+
+# Teste da questão 11
+pessoa1 = Pessoa("Anderson Silva", "01/06/1996", "263.263.151-12", "MG-12.345.678")
+print(f"Nome: {pessoa1.nome}, Data de Nascimento: {pessoa1.data_nascimento}, CPF: {pessoa1.get_cpf()}, Identidade: {pessoa1.get_identidade()}")
+pessoa1.set_cpf("987.654.321-00")
+pessoa1.set_identidade("SP-98.765.432")
+print(f"CPF atualizado: {pessoa1.get_cpf()}, Identidade atualizada: {pessoa1.get_identidade()}")
